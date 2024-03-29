@@ -1,20 +1,32 @@
-Wichtig: Die Musik muss erst noch in Szenen (alle außer Main Menu) aktiviert werden, wenn man diese hören möchte. Dazu geht man in die entsprechende Szene im Unity Editor -> Main Camera -> Audio Source -> "Play On Awake". 
+# Cursed
 
-Cursed Praxisprojekt
+## Beschreibung
 
-Dieses Spiel wurde von Saskia Wohlers im Rahmen des Praxisprojekt an der Fachhochschule Erfurt entwickelt.
-Es ist in der Unity Engine 2021.3.10f1 entwickelt.
+Dieses Spiel wurde von Saskia Wohlers im Rahmen des Praxisprojekts an der Fachhochschule Erfurt entwickelt. Es ist in der Unity Engine 2021.3.10f1 erstellt worden.
 
-Es ist ein 2D Action Adventure, in welchem man Gegner umhaut, levelt, und schlussendlich den Boss besiegen kann.
-Angeführt wird das ganze von einer kleinen Geschichte.
+### Spielbeschreibung
 
-Die Assets sind alle selbst gezeichnet und animiert, die Musik ist von Tobias Zugehör für dieses Spiel spezifisch "komponiert" worden.
+Das Spiel ist ein 2D Action-Adventure, in dem der Spieler Gegner bekämpfen, leveln und letztendlich den Boss besiegen kann. Eine kleine Geschichte begleitet das gesamte Spiel.
 
-Um das Spiel zu beginnen, startet man in der Szene "Main Menu". Das Spiel ist beendet, wenn man den Boss besiegt hat.
-Man bewegt den Spieler mittels "WASD", interagiert mit NPCs und Schildern mittels "F" und kann einen Dash mittels "Space" ausführen. Angreifen tut man mit der linken Maustaste.
+Die Assets wurden von mir alle selbst gezeichnet und animiert, während die Musik speziell für dieses Spiel von Tobias Zugehör komponiert wurde.
 
-Anmerkung/Kommentar des Entwicklers: 
--Es gibt Klassen, GameObjecte und besonders auch Sprites etc, welche im Spiel leider nicht genutzt werden. Dies hängt damit zusammen, dass ich mich im Laufe der Entwicklung massiv verschätzt habe, was ich zeitlich schaffen kann und auch was ich vom Können her sinnvoll einbauen und umsetzen kann.
--Dadurch, dass ich mich beim Programmieren diesen Spiels stückweit weiterentwickelt habe was mein Unity und C# - Wissen angeht, sind manche Lösungsansätze für die ersten angegangenen Probleme/Funktionalitäten wahrscheinlich nicht optimal und teilweise ganz schön unordentlich programmiert. Das zieht sich leider durch das gesamte Projekt. Besonders deutlich wird das dann, wenn sich mir massive Probleme aufgetan haben (Stichwort hierbei "XPManager" und "GameManager"). In diesen Fällen kann man die Verzweiflung und das Mindset "Hauptsache es läuft irgendwie" im Code geradezu rauslesen.
-Kurzum - dieses Projekt braucht dringend Refactoring an allen Stellen, wozu ich leider keine Zeit mehr hatte.
+## Spielanleitung
 
+- Starten Sie das Spiel in der Szene "Main Menu".
+- Das Spiel endet, wenn der Boss besiegt ist.
+- Steuern Sie den Spieler mit "WASD".
+- Interagieren Sie mit NPCs und Schildern mit "F".
+- Führen Sie einen Dash mit "Space" aus.
+- Greifen Sie mit der linken Maustaste an.
+
+## Hinweis zur Musik
+
+Die Musik muss erst in den Szenen (außer im Hauptmenü) aktiviert werden, um sie zu hören. Gehen Sie dazu in die entsprechende Szene im Unity-Editor -> Hauptkamera -> Audiowiedergabe -> "Play On Awake".
+
+## Anmerkungen des Entwicklers
+
+Einige Klassen, GameObjects und Sprites, welche noch unter entsprechenden Ordnern im Projekt gefunden werden können, wurden nicht im Spiel genutzt, da ich mich zeitlich und in Bezug auf meine Fähigkeiten bei der Entwicklung des Spiels stark verschätzt habe.
+
+Einige der früheren Programmierlösungen sind wahrscheinlich nicht optimal und teilweise unordentlich umgesetzt, da sich mein Wissen in Unity und C# im Laufe der Entwicklung weiterentwickelt hat.
+
+Das Projekt benötigt dringend Refactoring an allen Stellen, für das ich leider keine Zeit mehr hatte.
