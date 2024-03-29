@@ -2,112 +2,97 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script for the Player control, like walking, attacking, animations, etc
+
+public enum PlayerState
+{
+    walk,
+    attack,
+    interact,
+    dead
+}
 public class CharacterController : MonoBehaviour
 {
-
-    Rigidbody2D rigidbody;
-
+    public PlayerState currentState;
+    private Rigidbody2D rigidbody;
     public Animator anim;
-
-    float horizontal;
-    float vertical;
-    float speedLimiter = 0.7f;
-
+    private Vector3 change;
     public float speed = 20.0f;
+    public float dashSpeed = 1f;
+    public VectorValue spawnPosition;
+    
 
     void Start()
     {
+        currentState = PlayerState.walk;
         rigidbody = GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
+        anim.SetFloat("MoveX", 0f);
+        anim.SetFloat("MoveX", -1f);
+
+        transform.position = spawnPosition.initialValue;
+
     }
 
-    void Update()
+    private void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-
-
-        // Animation controller needs to be more compact
-
-        if (horizontal == 0 && vertical == 0)
+        if (Input.GetButtonDown("Standard_Attack") && currentState != PlayerState.attack)
         {
-            anim.SetBool("Standing", true);
+            StartCoroutine(AttackCo());
         }
-        else if (vertical <= -0.01f && horizontal <= -0.01f)
+        if (Input.GetButtonDown("Dash") && currentState != PlayerState.attack)
         {
-            anim.SetBool("WalkingUp", false);
-            anim.SetBool("WalkingDown", true);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
+            StartCoroutine(DashCo());
         }
-        else if (vertical <= -0.01f && horizontal >= 0.01f)
-        {
-            anim.SetBool("WalkingUp", false);
-            anim.SetBool("WalkingDown", true);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
-        }
-        else if (vertical >= 0.01f && horizontal >= 0.01f)
-        {
-            anim.SetBool("WalkingUp", true);
-            anim.SetBool("WalkingDown", false);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
-        }
-        else if (vertical >= 0.01f && horizontal <= -0.01f)
-        {
-            anim.SetBool("WalkingUp", true);
-            anim.SetBool("WalkingDown", false);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
-        }
-        else if (horizontal >= 0.01f)
-        {
-            anim.SetBool("WalkingRight", true);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingUp", false);
-            anim.SetBool("WalkingDown", false);
-        }
-        else if (horizontal <= -0.01f)
-        {
-            anim.SetBool("WalkingLeft", true);
-            anim.SetBool("WalkingRight", false);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingUp", false);
-            anim.SetBool("WalkingDown", false);
-        }
-        else if (vertical >= 0.01f)
-        {
-            anim.SetBool("WalkingUp", true);
-            anim.SetBool("WalkingDown", false);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
-        }
-        else if (vertical <= -0.01f)
-        {
-            anim.SetBool("WalkingUp", false);
-            anim.SetBool("WalkingDown", true);
-            anim.SetBool("Standing", false);
-            anim.SetBool("WalkingLeft", false);
-            anim.SetBool("WalkingRight", false);
-        }
-        
     }
-
     void FixedUpdate()
     {
-        if (horizontal != 0 && vertical != 0)
+        change = Vector3.zero;
+        change.x = Input.GetAxisRaw("Horizontal");
+        change.y = Input.GetAxisRaw("Vertical");
+        if(currentState == PlayerState.walk && currentState != PlayerState.attack)
         {
-            horizontal *= speedLimiter;
-            vertical *= speedLimiter;
+            UpdateAnimationAndMove();
         }
-
-        rigidbody.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
+
+    private IEnumerator AttackCo()
+    {
+        anim.SetBool("Fighting", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        anim.SetBool("Fighting", false);
+        yield return new WaitForSeconds(0.33f);
+        currentState = PlayerState.walk;
+    }
+
+    private IEnumerator DashCo()
+    {
+        speed = speed + dashSpeed;
+        yield return new WaitForSeconds(0.2f);
+        speed = speed - dashSpeed;
+        yield return new WaitForSeconds(1f);
+    }
+
+    void UpdateAnimationAndMove()
+    {
+        if (change != Vector3.zero)
+        {
+            MoveCharacter();
+            anim.SetFloat("MoveX", change.x);
+            anim.SetFloat("MoveY", change.y);
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
+        }
+    }
+
+    void MoveCharacter()
+    {
+        change.Normalize();
+        rigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+    }
+
 }

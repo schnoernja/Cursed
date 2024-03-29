@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Horolon_Forrest_Eeast.unity
+    path: Assets/Scenes/Start Menu.unity
+    guid: 8c98e1b96e8d7864e96eff62e7a55fe0
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: b6c4ca6789276ae40bbd69ec6c4f0f12
+  - enabled: 1
+    path: Assets/Scenes/Home Forrest.unity
+    guid: 0be09399ac892d244b94ab7ab00cbf06
+  - enabled: 1
+    path: Assets/Scenes/Horolon Forrest East.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Horolon Forrest West.unity
+    guid: 6684bb88dcfa44c43a6620c5ecc1df1a
   m_configObjects: {}

@@ -5,11 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Beeny
+  - Enemy
+  - SavePoint
+  - Dealer
+  - Destroyable
+  - Transitions
+  - Spikes
+  - WorldBoundary
+  - Sword
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UnderUI
   - Water
   - UI
   - 
