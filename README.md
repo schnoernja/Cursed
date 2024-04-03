@@ -21,11 +21,11 @@ Die Assets wurden von mir alle selbst gezeichnet und animiert, während die Musi
 
 ## Hinweis zur Musik
 
-Die Musik muss erst in den Szenen (außer im Hauptmenü) aktiviert werden, um sie zu hören. Gehen Sie dazu in die entsprechende Szene im Unity-Editor -> Hauptkamera -> Audiowiedergabe -> "Play On Awake".
+Die Musik muss erst in den Szenen (außer in "Main Menu") aktiviert werden, um sie zu hören. Gehen Sie dazu in die entsprechende Szene im Unity-Editor -> Hauptkamera -> Audiowiedergabe -> "Play On Awake".
 
 ## Anmerkungen des Entwicklers
 
-Einige Klassen, GameObjects und Sprites, welche noch unter entsprechenden Ordnern im Projekt gefunden werden können, wurden nicht im Spiel genutzt, da ich mich zeitlich und in Bezug auf meine Fähigkeiten bei der Entwicklung des Spiels stark verschätzt habe.
+Es kann sein das manche Klassen, GameObjects und Sprites, welche noch unter entsprechenden Ordnern im Projekt gefunden werden können, nicht im Spiel genutzt wurden, da ich mich zeitlich und in Bezug auf meine Fähigkeiten bei der Entwicklung des Spiels stark verschätzt habe.
 
 Einige der früheren Programmierlösungen sind wahrscheinlich nicht optimal und teilweise unordentlich umgesetzt, da sich mein Wissen in Unity und C# im Laufe der Entwicklung weiterentwickelt hat.
 
