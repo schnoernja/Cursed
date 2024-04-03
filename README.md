@@ -8,7 +8,7 @@ Dieses Spiel wurde von Saskia Wohlers im Rahmen des Praxisprojekts an der Fachho
 
 Das Spiel ist ein 2D Action-Adventure, in dem der Spieler Gegner bekämpfen, leveln und letztendlich den Boss besiegen kann. Eine kleine Geschichte begleitet das gesamte Spiel.
 
-Die Assets wurden von mir alle selbst gezeichnet und animiert, während die Musik speziell für dieses Spiel von Tobias Zugehör komponiert wurde.
+Die Assets wurden von mir alle selbst gezeichnet und animiert, während die Musik speziell für dieses Spiel von einem Kommilitonen komponiert wurde.
 
 ## Spielanleitung
 
